@@ -1,6 +1,7 @@
 package com.example.quim.bykeapp.fragment;
 
 import android.app.Fragment;
+import android.arch.lifecycle.Lifecycle;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -82,6 +83,7 @@ public class ItemFragment extends Fragment {
             bikes.add(new Bike("Bike6", "Sixth Bike"));
             myItemRecyclerViewAdapter = new MyItemRecyclerViewAdapter(bikes, mListener);
             recyclerView.setAdapter(myItemRecyclerViewAdapter);
+            mListener.onCreatedView();
         }
         return view;
     }
@@ -95,7 +97,8 @@ public class ItemFragment extends Fragment {
         super.onAttach(context);
         if (context instanceof OnListFragmentInteractionListener) {
             mListener = (OnListFragmentInteractionListener) context;
-        } else {
+        }
+        else {
             throw new RuntimeException(context.toString()
                     + " must implement OnListFragmentInteractionListener");
         }
@@ -107,18 +110,9 @@ public class ItemFragment extends Fragment {
         mListener = null;
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p/>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
     public interface OnListFragmentInteractionListener {
-        // TODO: Update argument type and name
         void onListFragmentInteraction(Bike bike);
+        void onCreatedView();
     }
+
 }

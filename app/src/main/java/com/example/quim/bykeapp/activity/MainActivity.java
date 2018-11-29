@@ -31,6 +31,11 @@ public class MainActivity extends AppCompatActivity
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
+    private String bikeId;
+    private String bikeDescription;
+
+    private NavigationView navigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +63,7 @@ public class MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         //Default fragment - bike list
@@ -136,9 +141,11 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onAddedBikeListener(Bike bike) {
         Log.d(TAG, "New item: " + bike.getId() + " (id), " + bike.getContent() + " (content)");
+        bikeId = bike.getId();
+        bikeDescription = bike.getContent();
         ItemFragment fragment = new ItemFragment();
-        fragment.addItem(bike);
         updateFragment(fragment);
+        navigationView.setCheckedItem(R.id.nav_bikes);
     }
 
     private void updateFragment(Fragment fragment) {
@@ -147,4 +154,11 @@ public class MainActivity extends AppCompatActivity
         ft.commit();
     }
 
+    @Override
+    public void onCreatedView() {
+        if (bikeId != null) {
+            ItemFragment fragment = (ItemFragment) getFragmentManager().findFragmentById(R.id.content_frame);
+            fragment.addItem(new Bike(bikeId, bikeDescription));
+        }
+    }
 }
