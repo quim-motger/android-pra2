@@ -4,6 +4,7 @@ import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
@@ -23,11 +24,13 @@ import com.example.quim.bykeapp.R;
 import com.example.quim.bykeapp.entity.Bike;
 import com.example.quim.bykeapp.fragment.AddBikeFragment;
 import com.example.quim.bykeapp.fragment.ItemFragment;
+import com.example.quim.bykeapp.fragment.MapsFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         ItemFragment.OnListFragmentInteractionListener,
-        AddBikeFragment.AddBikeListener {
+        AddBikeFragment.AddBikeListener,
+        MapsFragment.OnFragmentInteractionListener{
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
@@ -119,7 +122,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_bikes) {
             fragment = new ItemFragment();
         } else if (id == R.id.nav_maps) {
-            //TODO
+            fragment = new MapsFragment();
         } else if (id == R.id.nav_logout) {
             //TODO
         }
@@ -160,5 +163,10 @@ public class MainActivity extends AppCompatActivity
             ItemFragment fragment = (ItemFragment) getFragmentManager().findFragmentById(R.id.content_frame);
             fragment.addItem(new Bike(bikeId, bikeDescription));
         }
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 }
