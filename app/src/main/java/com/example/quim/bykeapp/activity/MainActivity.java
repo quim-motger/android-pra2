@@ -22,7 +22,9 @@ import android.view.MenuItem;
 
 import com.example.quim.bykeapp.R;
 import com.example.quim.bykeapp.entity.Bike;
+import com.example.quim.bykeapp.entity.Element;
 import com.example.quim.bykeapp.fragment.AddBikeFragment;
+import com.example.quim.bykeapp.fragment.CitiesFragment;
 import com.example.quim.bykeapp.fragment.ItemFragment;
 import com.example.quim.bykeapp.fragment.MapsFragment;
 
@@ -30,7 +32,8 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         ItemFragment.OnListFragmentInteractionListener,
         AddBikeFragment.AddBikeListener,
-        MapsFragment.OnFragmentInteractionListener{
+        MapsFragment.OnFragmentInteractionListener,
+        CitiesFragment.OnListFragmentInteractionListener{
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
@@ -125,6 +128,8 @@ public class MainActivity extends AppCompatActivity
             fragment = new MapsFragment();
         } else if (id == R.id.nav_logout) {
             //TODO
+        } else if (id == R.id.nav_towns) {
+            fragment = new CitiesFragment();
         }
 
         updateFragment(fragment);
@@ -167,6 +172,11 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onFragmentInteraction(Uri uri) {
+
+    }
+
+    @Override
+    public void onListFragmentInteraction(Element item) {
 
     }
 }

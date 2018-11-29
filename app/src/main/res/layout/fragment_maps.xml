@@ -6,6 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".fragment.MapsFragment"
     android:id="@+id/map_layout">
+    <ProgressBar
+        android:id="@+id/maps_progress"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone" />
     <fragment
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
