@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">BykeApp</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Contraseña</string>
+    <string name="action_sign_in">Inicar sesión/registrar</string>
+    <string name="action_sign_in_short">Iniciar sesión</string>
+    <string name="error_invalid_email">La dirección de correo es invalida</string>
+    <string name="error_invalid_password">La contraseña es demasiado corta</string>
+    <string name="error_incorrect_password">La contraseña no es correcta</string>
+    <string name="error_field_required">Este campo es obligatorio</string>
+    <string name="permission_rationale">"Se requieren permisos de acceso a contactos para la autompleción de mail"
+    </string>
+    <string name="title_activity_bike_sharing_list">BikeSharingListActivity</string>
+    <string name="identificador">identificador</string>
+    <string name="add_button">Añadir</string>
+    <string name="id">id</string>
+    <string name="content">content</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="navigation_drawer_open">Abrir navigation drawer</string>
+    <string name="navigation_drawer_close">Cerrar navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Cabecera navigation</string>
+    <string name="action_settings">Ajustes</string>
+
+    <string name="add_new_bike">Añadir bicicleta</string>
+    <string name="bikes">Bicicletas</string>
+    <string name="maps">Mapas</string>
+    <string name="log_out">Cerrar sesión</string>
+</resources>
