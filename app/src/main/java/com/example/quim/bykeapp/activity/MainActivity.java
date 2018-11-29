@@ -127,7 +127,8 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_maps) {
             fragment = new MapsFragment();
         } else if (id == R.id.nav_logout) {
-            //TODO
+            logout();
+            return true;
         } else if (id == R.id.nav_towns) {
             fragment = new CitiesFragment();
         }
@@ -139,6 +140,19 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void logout() {
+        final SharedPreferences sharedPref =
+                PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.remove("username");
+        editor.remove("password");
+        editor.putBoolean("registered", false);
+        editor.commit();
+        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     @Override
