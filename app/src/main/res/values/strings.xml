@@ -13,7 +13,7 @@
         completions."
     </string>
     <string name="title_activity_bike_sharing_list">BikeSharingListActivity</string>
-    <string name="identificador">identificador</string>
+    <string name="identificador">identifier</string>
     <string name="add_button">Add</string>
     <string name="id">id</string>
     <string name="content">content</string>
